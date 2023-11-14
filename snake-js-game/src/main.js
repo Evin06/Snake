@@ -1,5 +1,5 @@
 import '../css/style.css';
-
+import './Snake.js';
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
@@ -8,6 +8,9 @@ const move = () => {
   // Dessine la grille de jeu
   ctx.fillStyle = 'black';
   ctx.fillRect(0, 0, 800, 800);
+  
+  ctx.fillStyle = 'Green';
+  ctx.fillRect(0, 0, 60, 60);
 
   // Rafraichit à chaque seconde
   setTimeout(() => {
