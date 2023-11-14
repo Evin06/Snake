@@ -3,21 +3,21 @@ export class SNAKE {
     constructor() {
         const canvas = document.querySelector('canvas');
         const ctx = canvas.getContext('2d');
-        this.x = 0;
-        this.y = 0;
+        this.x = 6;
+        this.y = 6;
         this.size = 60;
         console.log('Hello Snake 1');
     }
     moveLeft(){
-        this.x--
+        this.x--;
     }
     moveRight(){
-        this.x++
+        this.x++;
     }
     moveDown(){
-        this.y++
+        this.y++;
     } 
     moveUp(){
-        this.y--
+        this.y--;
     }
 }
