@@ -12,16 +12,16 @@ const Apple = new ApplE();
 const handleKeyPress = (event) => {
   switch (event.key) {
     case 'ArrowLeft':
-      snake.moveLeft();
+      snake.direction ='left';
       break;
     case 'ArrowRight':
-      snake.moveRight();
+      snake.direction ='right';
       break;
     case 'ArrowDown':
-      snake.moveDown();
+      snake.direction ='down';
       break;
     case 'ArrowUp':
-      snake.moveUp();
+      snake.direction ='up';
       break;
   }
 };
@@ -34,11 +34,11 @@ const move = () => {
   ctx.fillStyle = 'black';
   ctx.fillRect(0, 0, 800, 800);
  
-  
+  snake.move();
   ctx.fillStyle = 'Green';
   ctx.fillRect(snake.x * snake.size, snake.y * snake.size, snake.size, snake.size);
   
-  if(snake.x < 0 || snake.x >= 800/snake.size || snake.y<0 || snake.y >= 800/snake.size  ){
+  if(snake.x < 0 || snake.x >= 800/snake.size || snake.y<0 || snake.y >= 800/snake.size){
     ctx.font = '50px Arial';
     ctx.fillStyle = 'Red';
     ctx.fillText('Game Over', 270, 300);
@@ -46,11 +46,11 @@ const move = () => {
   }
 
   ctx.fillStyle = 'red';
-  ctx.fillRect(Apple.x * Apple.size, Apple.y * Apple.size, Apple.size, Apple.size);
+  ctx.fillRect(Apple.x , Apple.y , Apple.size, Apple.size);
 
   setTimeout(() => {
     requestAnimationFrame(move);
-  }, 100);
+  }, 150);
 };
 
 requestAnimationFrame(move);
