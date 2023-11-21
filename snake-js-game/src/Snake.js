@@ -1,4 +1,4 @@
-export class SNAKE {
+export class Snake {
 
     constructor() {
         const canvas = document.querySelector('canvas');
@@ -6,7 +6,6 @@ export class SNAKE {
         this.x = 10;
         this.y = 10;
         this.size = 40;
-        console.log('Hello Snake 1');
     }
     moveLeft(){
         this.x--;
