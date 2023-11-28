@@ -47,13 +47,12 @@ const move = () => {
 
   ctx.fillStyle = 'red';
   ctx.fillRect(Apple.x , Apple.y , Apple.size, Apple.size);
-  if(snake.x == Apple.x && snake.y == Apple.y){
+  if(snake.x == Apple.x / Apple.size && snake.y == Apple.y / Apple.size){
     Apple.GenerateRandomPosition();
   }
-
   setTimeout(() => {
     requestAnimationFrame(move);
-  }, 150);
+  }, 125);
 };
 
 requestAnimationFrame(move);
