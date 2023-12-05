@@ -52,7 +52,7 @@ const move = () => {
   }
   setTimeout(() => {
     requestAnimationFrame(move);
-  }, 125);
+  }, 110);
 };
 
 requestAnimationFrame(move);
