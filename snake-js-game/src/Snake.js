@@ -5,8 +5,9 @@ export class Snake {
         this.ctx = canvas.getContext('2d');
         this.x = 10;
         this.y = 10;
+        this.segments = [{ x: this.x, y: this.y }];
         this.size = 40;
-       
+
     }
     move() {
         switch (this.direction) {
@@ -23,5 +24,6 @@ export class Snake {
                 this.y--;
                 break;
         }
+
     }
 }
