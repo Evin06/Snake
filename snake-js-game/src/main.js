@@ -47,6 +47,10 @@ const move = () => {
   ctx.fillText('Score: ' + Point, canvas.width - 790, 30);
 
   snake.move();
+  
+  //affichage de la pomme 
+  ctx.fillStyle = 'red';
+  ctx.fillRect(Apple.x, Apple.y, Apple.size, Apple.size);
   //affichage de la tête du snake 
   ctx.fillStyle = 'Green';
   ctx.fillRect(snake.x * snake.size, snake.y * snake.size, snake.size, snake.size);
@@ -57,7 +61,7 @@ const move = () => {
     ctx.fillRect(snake.segment[i].x * snake.size, snake.segment[i].y * snake.size, snake.size, snake.size);
   }
 
-
+  // si le le snake touche les bords ca fait game over
   if (snake.x < 0 || snake.x >= 800 / snake.size || snake.y < 0 || snake.y >= 800 / snake.size) {
 
     // Ecrire game Over en rouge au milieu de l'ecran 
@@ -75,10 +79,6 @@ const move = () => {
 
     return;
   }
-
-  //affichage de la pomme 
-  ctx.fillStyle = 'red';
-  ctx.fillRect(Apple.x, Apple.y, Apple.size, Apple.size);
 
   //faire que si le snake a la meme position que la pomme ca change la position de la pomme et ajoute un point
   if (snake.x == Apple.x / Apple.size && snake.y == Apple.y / Apple.size) {

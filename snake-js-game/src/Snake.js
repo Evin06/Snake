@@ -43,7 +43,6 @@ export class Snake {
     
     }
     grow() {
-        this.segment.push({ x: this.x, y: this.y });
-          
+        this.segment.push({ x: this.x, y: this.y });      
       }
 }
