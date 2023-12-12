@@ -11,7 +11,7 @@ const ctx = canvas.getContext('2d');
 //création d'une pomme 
 const Apple = new ApplE();
 //création d'un snake
-const snake = new Snake(Apple);
+const snake = new Snake();
 var Point = 0;
 
 //touche pour deplacer le snake  
@@ -65,9 +65,13 @@ const move = () => {
     ctx.fillStyle = 'Red';
     ctx.fillText('Game Over', 270, 300);
     //afficher le score en blanc avec les points 
-    ctx.font = '30px Arial';
+    ctx.font = '35px Arial';
     ctx.fillStyle = 'white';
-    ctx.fillText('Score : ' + Point, 320, 350);
+    ctx.fillText('Score : ' + Point, 325, 360);
+    //Afficher pour recommencer 
+    ctx.font = '25px Arial';
+    ctx.fillStyle = 'white';
+    ctx.fillText('Appuyer sur F5 pour rejouer', 240, 420);
 
     return;
   }

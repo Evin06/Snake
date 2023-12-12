@@ -1,14 +1,13 @@
 export class Snake {
 
-    constructor(Apple) {
+    constructor() {
         const canvas = document.querySelector('canvas');
         this.ctx = canvas.getContext('2d');
         this.x = 10;
         this.y = 10;
         this.size = 40;
         this.segment=[];
-        this.apple = Apple 
-
+       
     }
 
     //deplacement du snake 
