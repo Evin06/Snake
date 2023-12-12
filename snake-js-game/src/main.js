@@ -15,7 +15,7 @@ const snake = new Snake(Apple);
 var Point = 0;
 
 //touche pour deplacer le snake  
-const handleKeyPress = (event) => {
+const KeyPress = (event) => {
   switch (event.key) {
     case 'ArrowLeft':
       snake.direction = 'left';
@@ -33,7 +33,7 @@ const handleKeyPress = (event) => {
   }
 };
 
-document.addEventListener('keydown', handleKeyPress);
+document.addEventListener('keydown', KeyPress);
 
 const move = () => {
 
@@ -56,6 +56,7 @@ const move = () => {
   for (let i = 0; i < snake.segment.length; i++) {
     ctx.fillRect(snake.segment[i].x * snake.size, snake.segment[i].y * snake.size, snake.size, snake.size);
   }
+
 
   if (snake.x < 0 || snake.x >= 800 / snake.size || snake.y < 0 || snake.y >= 800 / snake.size) {
 

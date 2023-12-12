@@ -1,5 +1,3 @@
-import { ApplE } from "./Apple";
-
 export class Snake {
 
     constructor(Apple) {
@@ -15,6 +13,16 @@ export class Snake {
 
     //deplacement du snake 
     move() {
+        if (this.segment.length > 0) {
+            // Déplacez chaque segment du serpent en suivant le segment précédent
+            for (let i = this.segment.length - 1; i > 0; i--) {
+                this.segment[i].x = this.segment[i - 1].x;
+                this.segment[i].y = this.segment[i - 1].y;
+            }
+            // Mettez à jour la position du premier segment pour suivre la tête
+            this.segment[0].x = this.x;
+            this.segment[0].y = this.y;
+        }
         switch (this.direction) {
             // A gauche 
             case 'left':
