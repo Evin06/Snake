@@ -6,21 +6,23 @@ export class Snake {
         this.x = 10;
         this.y = 10;
         this.size = 40;
-        this.segment=[];
+        this.corps=[];
        
     }
 
     //deplacement du snake 
     move() {
-        if (this.segment.length > 0) {
-            // Déplacez chaque segment du serpent en suivant le segment précédent
-            for (let i = this.segment.length - 1; i > 0; i--) {
-                this.segment[i].x = this.segment[i - 1].x;
-                this.segment[i].y = this.segment[i - 1].y;
-            }
+        if (this.corps.length > 0) {
+             
             // Mettez à jour la position du premier segment pour suivre la tête
-            this.segment[0].x = this.x;
-            this.segment[0].y = this.y;
+             this.corps[0].x = this.x;
+             this.corps[0].y = this.y;
+            // Déplacez chaque segment du serpent en suivant le segment précédent
+            for (let i = this.corps.length - 1; i > 0; i--) {
+                this.corps[i].x = this.corps[i - 1].x;
+                this.corps[i].y = this.corps[i - 1].y;
+            }
+           
         }
         switch (this.direction) {
             // A gauche 
@@ -43,6 +45,6 @@ export class Snake {
     
     }
     grow() {
-        this.segment.push({ x: this.x, y: this.y });      
+        this.corps.push({ x: this.x, y: this.y });      
       }
 }

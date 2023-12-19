@@ -57,8 +57,8 @@ const move = () => {
 
   //affichage de du corp du snake
   ctx.fillStyle = 'darkgreen';
-  for (let i = 0; i < snake.segment.length; i++) {
-    ctx.fillRect(snake.segment[i].x * snake.size, snake.segment[i].y * snake.size, snake.size, snake.size);
+  for (let i = 0; i < snake.corps.length; i++) {
+    ctx.fillRect(snake.corps[i].x * snake.size, snake.corps[i].y * snake.size, snake.size, snake.size);
   }
 
   // si le le snake touche les bords ca fait game over
