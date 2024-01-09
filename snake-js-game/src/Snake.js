@@ -7,7 +7,6 @@ export class Snake {
         this.y = 10;
         this.size = 40;
         this.corps=[];
-       
     }
 
     //deplacement du snake 
@@ -44,6 +43,7 @@ export class Snake {
         }
     
     }
+    //ajoute un nouveau bloc a la fin du tableau 
     grow() {
         this.corps.push({ x: this.x, y: this.y });      
       }

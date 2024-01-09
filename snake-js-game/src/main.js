@@ -14,20 +14,28 @@ const Apple = new ApplE();
 const snake = new Snake();
 var Point = 0;
 
-//touche pour deplacer le snake  
+//touche pour deplacer le snake  dans la direction que l'on veut 
 const KeyPress = (event) => {
   switch (event.key) {
     case 'ArrowLeft':
-      snake.direction = 'left';
+     if (snake.direction !== 'right'){
+       snake.direction = 'left';
+     }
       break;
     case 'ArrowRight':
+    if(snake.direction !=='left'){
       snake.direction = 'right';
+    } 
       break;
     case 'ArrowDown':
-      snake.direction = 'down';
+      if(snake.direction !== 'up'){
+        snake.direction = 'down';
+      }
       break;
     case 'ArrowUp':
-      snake.direction = 'up';
+      if(snake.direction !=='down'){
+        snake.direction = 'up';
+      }
       break;
 
   }
@@ -79,7 +87,25 @@ const move = () => {
 
     return;
   }
+  // Si le snake touche de corps game over 
+  for (let i = 0; i < snake.corps.length; i++) {
+    if (snake.x === snake.corps[i].x && snake.y === snake.corps[i].y) {
+    // Ecrire game Over en rouge au milieu de l'ecran 
+    ctx.font = '50px Arial';
+    ctx.fillStyle = 'Red';
+    ctx.fillText('Game Over', 270, 300);
+    //afficher le score en blanc avec les points 
+    ctx.font = '35px Arial';
+    ctx.fillStyle = 'white';
+    ctx.fillText('Score : ' + Point, 325, 360);
+    //Afficher pour recommencer 
+    ctx.font = '25px Arial';
+    ctx.fillStyle = 'white';
+    ctx.fillText('Appuyer sur F5 pour rejouer', 240, 420);
 
+    return;
+    }
+  }
   //faire que si le snake a la meme position que la pomme ca change la position de la pomme et ajoute un point
   if (snake.x == Apple.x / Apple.size && snake.y == Apple.y / Apple.size) {
     Apple.GenerateRandomPosition();
